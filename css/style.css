@@ -47,3 +47,48 @@ main {
     margin-left: auto;
     margin-right: auto;
 }
+
+.todo {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+}
+
+.input-group {
+}
+.mb-3 {
+}
+.form-control {
+}
+.js-input {
+}
+.btn {
+}
+.btn-outline-secondary {
+}
+.js-button {
+}
+
+.list-group {
+    max-height: 400px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.list-group-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.list-group-item:nth-child(2n) {
+    background-color: #bdc3c7;
+}
+
+.delete-icon {
+    width: 16px;
+    height: 16px;
+    background-image: url("../img/trash3-fill.svg");
+    cursor: pointer;
+}
