@@ -62,11 +62,19 @@ main {
     align-items: center;
 }
 .todo__form {
-
+    width: 100%;
+    display: flex;
 }
 .todo__input {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
 }
 .todo__addbtn {
+    padding: 10px 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 .todo__list {
     list-style: none;
@@ -77,6 +85,7 @@ main {
     align-items: center;
     padding-top: 10px;
     padding-bottom: 10px;
+    cursor: pointer;
 }
 .todo__text {
     flex-grow: 1;
