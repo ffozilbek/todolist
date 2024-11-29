@@ -47,3 +47,41 @@ main {
     margin-left: auto;
     margin-right: auto;
 }
+
+.todo-wrapper__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+
+.todo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.todo__form {
+
+}
+.todo__input {
+}
+.todo__addbtn {
+}
+.todo__list {
+    list-style: none;
+    width: 100%;
+}
+.todo__item {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.todo__text {
+    flex-grow: 1;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.todo__badges {
+}
