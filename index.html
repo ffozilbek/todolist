@@ -6,17 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/style.css">
-    <title>TODO list</title>
+    <title>TODO List</title>
 </head>
 
 <body>
     <main class="main">
         <div class="container todo-wrapper__container">
             <div class="todo">
+                <div class="todo__date"></div>
                 <form class="todo__form">
-                    <input type="text" class="todo__input" placeholder="add Todo..." name="todo" autocomplete="off">
-                    <button class="todo__addbtn">add</button>
+                    <input type="text" class="todo__input" placeholder="add ToDo..." name="todo" autocomplete="off">
+                    <button class="todo__addbtn"></button>
                 </form>
+                <div class="todo__empty">Todo list is empty</div>
                 <ul class="todo__list">
                 </ul>
             </div>
