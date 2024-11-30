@@ -4,6 +4,15 @@ window.addEventListener("DOMContentLoaded", ()=> {
         elInput = document.querySelector(".todo__input"),
         elTodoList = document.querySelector(".todo__list");
 
+        function setItem() {
+            const itemInput = elInput.value.trim();
+
+            if(itemInput) {
+                createItem(itemInput);
+                saveTodoList();
+                elInput.value = "";
+            } else alert("Please add todo");
+        }
     elForm.addEventListener("submit", (e)=> {
         e.preventDefault();
         if(elInput.value) {
