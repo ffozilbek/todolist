@@ -92,5 +92,18 @@ main {
     padding-left: 10px;
     padding-right: 10px;
 }
-.todo__badges {
+
+.todo__trashbin {
+    width: 32px;
+    height: 32px;
+    background-image: url("../img/trash-icon.svg");
+    background-size: contain;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.checked {
+    text-decoration: line-through;
 }
