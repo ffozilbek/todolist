@@ -86,11 +86,7 @@ main {
     padding-top: 10px;
     padding-bottom: 10px;
     cursor: pointer;
-}
-.todo__text {
-    flex-grow: 1;
-    padding-left: 10px;
-    padding-right: 10px;
+    position: relative;
 }
 
 .todo__trashbin {
@@ -102,6 +98,8 @@ main {
     outline: none;
     background-color: transparent;
     cursor: pointer;
+    position: absolute;
+    right: 0;
 }
 
 .checked {

@@ -4,68 +4,52 @@ window.addEventListener("DOMContentLoaded", ()=> {
         elInput = document.querySelector(".todo__input"),
         elTodoList = document.querySelector(".todo__list");
 
-        loadTodo();
+        showTodo();
+    function addTodo() {
+        if(elInput.value) {
+            // create elements
+            const todoItem = document.createElement("li"),
+                itemDelBtn = document.createElement("button");
 
-        function setItem() {
-            const itemInput = elInput.value.trim();
+            todoItem.innerHTML = elInput.value;
 
-            if(itemInput) {
-                createItem(itemInput);
-                saveTodoList();
-                elInput.value = "";
-            } else alert("Please add todo");
+            todoItem.classList.add("todo__item");
+            itemDelBtn.classList.add("todo__trashbin");
+
+            elTodoList.appendChild(todoItem);
+            todoItem.appendChild(itemDelBtn);
+
+            elInput.value = "";
+            saveTodo();
+
+        } else {
+            alert("Please add todo...")
         }
+    }
 
-        elForm.addEventListener("submit", (e)=> {
-            e.preventDefault();
-            setItem();
-        })
+    elForm.addEventListener("submit", (e)=> {
+        e.preventDefault();
+        addTodo()
+    })
 
-        function createItem(item) {
-            const newItem = document.createElement("li"),
-                 newItemText = document.createElement("span"),
-                 newTrashBtn = document.createElement("button"),
-                 newCheckBtn = document.createElement("input");
-
-                 newCheckBtn.setAttribute("type","checkbox")
-
-            newItem.classList.add("todo__item");
-            newItemText.classList.add("todo__text");
-            newTrashBtn.classList.add("todo__trashbin");
-
-
-            newItemText.textContent = item;
-
-            newItem.append(newCheckBtn);
-            newItem.append(newItemText);
-            newItem.append(newTrashBtn);
-            elTodoList.append(newItem);
-
-            newCheckBtn.addEventListener("click", ()=> {
-                if(newCheckBtn.checked) newItemText.classList.toggle("checked")
-            })
-
-            newTrashBtn.addEventListener("click", (e)=> {
-                elTodoList.removeChild(e.target.parentElement);
-                saveTodoList()
-            })
-
+    elTodoList.addEventListener("click", (e)=> {
+        if(e.target.tagName === "LI") {
+            e.target.classList.toggle("checked");
+            saveTodo();
         }
-
-        function saveTodoList() {
-            let todos = [];
-
-            elTodoList.querySelectorAll(".todo__text").forEach(item=> {
-                todos.push(item.textContent.trim())
-            });
-
-            localStorage.setItem("todos", JSON.stringify(todos));
+        else if(e.target.tagName === "BUTTON") {
+            e.target.parentElement.remove();
+            saveTodo();
         }
+    })
 
-        function loadTodo() {
-            const todos = JSON.parse(localStorage.getItem("todos")) || [];
-            todos.forEach(createItem)
-        }
+    function saveTodo() {
+        localStorage.setItem("todos", elTodoList.innerHTML);
+    }
+
+    function showTodo() {
+        elTodoList.innerHTML = localStorage.getItem("todos");
+    }
 
 
 
