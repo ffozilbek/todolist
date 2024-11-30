@@ -4,6 +4,8 @@ window.addEventListener("DOMContentLoaded", ()=> {
         elInput = document.querySelector(".todo__input"),
         elTodoList = document.querySelector(".todo__list");
 
+        loadTodo();
+
         function setItem() {
             const itemInput = elInput.value.trim();
 
@@ -13,8 +15,12 @@ window.addEventListener("DOMContentLoaded", ()=> {
                 elInput.value = "";
             } else alert("Please add todo");
         }
-    elForm.addEventListener("submit", (e)=> {
-        e.preventDefault();
+
+        elForm.addEventListener("submit", (e)=> {
+            e.preventDefault();
+            setItem();
+        })
+
         function createItem(item) {
             const newItem = document.createElement("li"),
                  newItemText = document.createElement("span"),
@@ -45,4 +51,22 @@ window.addEventListener("DOMContentLoaded", ()=> {
             })
 
         }
+
+        function saveTodoList() {
+            let todos = [];
+
+            elTodoList.querySelectorAll(".todo__text").forEach(item=> {
+                todos.push(item.textContent.trim())
+            });
+
+            localStorage.setItem("todos", JSON.stringify(todos));
+        }
+
+        function loadTodo() {
+            const todos = JSON.parse(localStorage.getItem("todos")) || [];
+            todos.forEach(createItem)
+        }
+
+
+
 })
